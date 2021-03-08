@@ -19,37 +19,34 @@ void swap_args(int *lhs, int *rhs) {
     }
 }
 
-
 // Задание 2
-int **allocate_2d_array(int rows, int cols, int value) {
+int **allocate_2d_array(int num_rows, int num_cols, int init_value) {
     // напишите код здесь ...
-    if ((rows < 1) || (cols < 1)) {
+    if ((num_rows < 1) || (num_cols < 1)) {
         return nullptr;
     }
 
-    int **array_2d = new int *[rows];
-    for (int i = 0; i < rows; i++) {
-        array_2d[i] = new int[cols];
-        for (int j = 0; j < cols; j++) {
-            array_2d[i][j] = value;
+    int **array_2d = new int *[num_rows];
+    for (int i = 0; i < num_rows; i++) {
+        array_2d[i] = new int[num_cols];
+        for (int j = 0; j < num_cols; j++) {
+            array_2d[i][j] = init_value;
         }
     }
     return array_2d;
 }
 
+
 // Задание 3
-bool copy_2d_array(int **source, int **target, int rows, int cols) {
+bool copy_2d_array(int **arr_2d_source, int **arr_2d_target, int num_rows, int num_cols) {
     // напишите код здесь ...
-    if ((!source) || (!target) || (rows < 1) || (cols < 1)) {
+    if ((!arr_2d_source) || (!arr_2d_target) || (num_rows < 1) || (num_cols < 1)) {
         return false;
     }
-    for (int i = 0; i < rows; i++) {
-        if ((!source[i]) && (!target[i])) {
-            for (int j = 0; j < cols; j++) {
-                if (!source[i][j] && !target[i][j])
-                    target[i][j] = source[i][j];
-                else
-                    return false;
+    for (int i = 0; i < num_rows; i++) {
+        if ((arr_2d_source[i]) && (arr_2d_target[i])) {
+            for (int j = 0; j < num_cols; j++) {
+                arr_2d_target[i][j] = arr_2d_source[i][j];
             }
         } else {
             return false;
@@ -57,6 +54,7 @@ bool copy_2d_array(int **source, int **target, int rows, int cols) {
     }
     return true;
 }
+
 
 // Задание 4
 void reverse_1d_array(vector<int> &arr) {
@@ -69,6 +67,7 @@ void reverse_1d_array(vector<int> &arr) {
         }
     }
 }
+
 
 // Задание 5
 void reverse_1d_array(int *arr_begin, int *arr_end) {
@@ -86,6 +85,7 @@ void reverse_1d_array(int *arr_begin, int *arr_end) {
     }
 }
 
+
 // Задание 6
 int *find_max_element(int *arr, int size) {
     // напишите код здесь ...
@@ -102,16 +102,20 @@ int *find_max_element(int *arr, int size) {
     }
 }
 
+
 // Задание 7
 vector<int> find_odd_numbers(vector<int> &arr) {
     // напишите код здесь ...
     vector<int> odd_numbers;
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 1) {
+        if (abs(arr[i]) % 2 == 1) {
             odd_numbers.push_back(arr[i]);
         }
     }
-    return odd_numbers;
+    if (!odd_numbers.empty()) {
+        return odd_numbers;
+    }
+    return {};
 }
 
 // Задание 8
@@ -119,7 +123,6 @@ vector<int> find_common_elements(vector<int> &arr_a, vector<int> &arr_b) {
     // напишите код здесь ...
     vector<int> common_elements;
     vector<int> temp = arr_b;
-
     for (int i = 0; i < arr_a.size(); i++) {
         auto iter = find(temp.begin(), temp.end(), arr_a[i]);
         if (iter != temp.end()) {
