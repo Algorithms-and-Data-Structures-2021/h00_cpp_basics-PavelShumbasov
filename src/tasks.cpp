@@ -11,6 +11,7 @@ using std::copy;
 
 // Задание 1
 void swap_args(int *lhs, int *rhs) {
+    // напишите код здесь ...
     if ((lhs) && (rhs)) {
         int temp = *lhs;
         *lhs = *rhs;
@@ -21,7 +22,7 @@ void swap_args(int *lhs, int *rhs) {
 
 // Задание 2
 int **allocate_2d_array(int rows, int cols, int value) {
-
+    // напишите код здесь ...
     if ((rows < 1) || (cols < 1)) {
         return nullptr;
     }
@@ -38,6 +39,7 @@ int **allocate_2d_array(int rows, int cols, int value) {
 
 // Задание 3
 bool copy_2d_array(int **source, int **target, int rows, int cols) {
+    // напишите код здесь ...
     if ((!source) || (!target) || (rows < 1) || (cols < 1)) {
         return false;
     }
@@ -58,7 +60,7 @@ bool copy_2d_array(int **source, int **target, int rows, int cols) {
 
 // Задание 4
 void reverse_1d_array(vector<int> &arr) {
-
+    // напишите код здесь ...
     if (arr.size() != 0) {
         int half_len = arr.size() / 2;
         int last = arr.size() - 1;
@@ -70,6 +72,7 @@ void reverse_1d_array(vector<int> &arr) {
 
 // Задание 5
 void reverse_1d_array(int *arr_begin, int *arr_end) {
+    // напишите код здесь ...
     if (arr_begin && arr_end) {
         int *ptr_beg = arr_begin;
         int *ptr_end = arr_end;
@@ -85,6 +88,7 @@ void reverse_1d_array(int *arr_begin, int *arr_end) {
 
 // Задание 6
 int *find_max_element(int *arr, int size) {
+    // напишите код здесь ...
     if (!arr || size < 1)
         return nullptr;
     else {
@@ -100,7 +104,7 @@ int *find_max_element(int *arr, int size) {
 
 // Задание 7
 vector<int> find_odd_numbers(vector<int> &arr) {
-
+    // напишите код здесь ...
     vector<int> odd_numbers;
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 1) {
@@ -112,7 +116,7 @@ vector<int> find_odd_numbers(vector<int> &arr) {
 
 // Задание 8
 vector<int> find_common_elements(vector<int> &arr_a, vector<int> &arr_b) {
-
+    // напишите код здесь ...
     vector<int> common_elements;
     vector<int> temp = arr_b;
 
